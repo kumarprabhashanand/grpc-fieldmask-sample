@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.grpc.example;
+
+option java_multiple_files = true;
+option java_package = "com.grpc.example.greet.model";
+option go_package = "./pb";
+
+import "google/protobuf/timestamp.proto";
+
+message User {
+  string firstName = 1;
+  optional string middleName = 2;
+  optional string lastName = 3;
+  optional uint32 age = 4;
+  repeated UserAddress address = 5;
+  google.protobuf.Timestamp currentTime = 6;
+}
+
+message UserAddress {
+  string addressLine1 = 1;
+  optional string addressLine2 = 2;
+  string city = 3;
+  string country = 4;
+  uint32 pincode = 5;
+  enum ADDRESS_TYPE {
+    BOTH = 0;
+    PERMANENT = 1;
+    CURRENT = 2;
+  }
+}
