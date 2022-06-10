@@ -68,7 +68,7 @@ func callRandomUser(client pb.GreetUserServiceClient, ctx context.Context) {
 	r, err := client.GetRandomUser(ctx, &req)
 
 	if err != nil {
-		log.Fatalf("could not greet: %v", err)
+		log.Fatalf("could not get random user : %v", err)
 	}
 
 	log.Printf("Response From Server - Random User : %s", r.GetUser())
